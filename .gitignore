@@ -1,5 +1,3 @@
-//CREATE FILE NAME AS "NewPage.java"
-
 package Test1;
 
 
@@ -197,11 +195,6 @@ public MyFrame()
 	tadd.setLocation(200, 300);
 	tadd.setLineWrap(true);
 	c.add(tadd);
-
-	
-	
-	
-	
 	
 	currentyear= new JLabel("Current Year");
 	currentyear.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -302,21 +295,10 @@ public MyFrame()
 	Dayschollar.setLocation(170, 610);
 	c.add(Dayschollar);
 
-
-	
 	gengp = new ButtonGroup();
 	gengp.add(hosteller);
 	gengp.add(Dayschollar);
-	
-	
-		
 
-	
-	
-	
-		
-	
-	
 	term = new JCheckBox("Accept Terms And Conditions.");
 	term.setFont(new Font("Arial", Font.PLAIN, 15));
 	term.setSize(250, 20);
@@ -401,17 +383,6 @@ public MyFrame()
 	gengp.add(km1);
 	gengp.add(km2);
 	gengp.add(km3);
-
-	
-
-	
-	
-	
-	
-	
-	
-	
-
 	setVisible(true);
 }
 
@@ -441,9 +412,6 @@ public void actionPerformed(ActionEvent e)
 				+ "/" + (String)month.getSelectedItem()
 				+ "/" + (String)year.getSelectedItem()
 				+ "\n";
-			
-
-			
 			String data3 = "Address : " + tadd.getText()+"\n";
 			String data4;
 			if(sel1.isSelected())
@@ -459,9 +427,7 @@ public void actionPerformed(ActionEvent e)
 			="Course : "+(String)courses.getSelectedItem()+ "\n";
 			String data6
 			="\n"+"-------------Fees---------------\n\n";
-			String data8=
-					
-							"Infastructure Fees = 35,000.00"
+			String data8="Infastructure Fees = 35,000.00"
 							+ "\n"
 							+ "Library Fees = 6,000.00";
 			int fin,dis,inf=35000,lib=6000;
@@ -471,9 +437,7 @@ public void actionPerformed(ActionEvent e)
 				dis=96000;
 				data7
 				="Course fees = "+dis+"(After deducting 20%)"
-						+ "\n";
-				
-				
+						+ "\n";	
 			}
 			else if(second.isSelected())
 			{
@@ -497,8 +461,6 @@ public void actionPerformed(ActionEvent e)
 				trans=10000;
 				data11
 				="\nTransportation fees = "+trans+"(for 5-10km)"+"\n";
-				
-				
 			}
 			else if(km2.isSelected())
 			{
@@ -515,19 +477,12 @@ public void actionPerformed(ActionEvent e)
 			else
 			{
 				trans=0;
-			
 			}
-			
-			
 			fin=dis+inf+lib+trans;
 			String data9
 			="\n"+"--------------------------"+"\n" ;
 			String data10
 			="Total = "+fin;
-			
-			
-					
-			
 			tout.setText(data + data1 + data2 + data3+data4+data5+data6+data7+data8+data11+data9+data10);
 			tout.setEditable(false);
 			res.setText("Registration Successfully..");
@@ -554,8 +509,6 @@ public void actionPerformed(ActionEvent e)
 		resadd.setText(def);
 		courses.setSelectedIndex(0);
 	}
-	
-	
 }
 }
 class NewPage extends JFrame  
