@@ -1,23 +1,572 @@
-# Compiled class file
-*.class
+//CREATE FILE NAME AS "NewPage.java"
 
-# Log file
-*.log
+package Test1;
 
-# BlueJ files
-*.ctxt
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+import javax.swing.*;  
+import java.awt.*;  
+import java.awt.event.*;
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+class MyFrame
+extends JFrame
+implements ActionListener {
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+// Components of the Form
+private Container c;
+private JLabel title;
+private JLabel name;
+private JTextField tname;
+private JLabel mno;
+private JTextField tmno;
+private JLabel gender;
+private JRadioButton male;
+private JRadioButton female;
+private ButtonGroup gengp;
+private JLabel dob;
+private JComboBox date;
+private JComboBox month;
+private JComboBox year;
+private JLabel add;
+private JTextArea tadd;
+private JCheckBox term;
+private JButton sub;
+private JButton reset;
+private JTextArea tout;
+private JLabel res;
+private JTextArea resadd;
+
+private JLabel currentyear;
+private JRadioButton sel1;
+private JRadioButton sel2;
+private JRadioButton sel3;
+private JRadioButton sel4;
+private JLabel Course;
+private JComboBox courses;
+private  JRadioButton hosteller;
+private JRadioButton Dayschollar;
+private JLabel bus;
+private JRadioButton yes;
+private JRadioButton no;
+private JLabel km;
+private JTextField kms;
+private JLabel per1;
+private JLabel per2;
+private JTextField pers;
+private JRadioButton merit;
+private JRadioButton second;
+private JRadioButton general;
+private JLabel kmm;
+private JRadioButton km1;
+private JRadioButton km2;
+private JRadioButton km3;
+
+private String courses1[]
+		= { "Computer science and Engineering",
+		    "Artificial Intelligence and Machine Learning",
+		     "Electronic and Communication Engineering",
+		     "Master of Business Administration"
+			};
+
+private String dates[]
+	= { "1", "2", "3", "4", "5",
+		"6", "7", "8", "9", "10",
+		"11", "12", "13", "14", "15",
+		"16", "17", "18", "19", "20",
+		"21", "22", "23", "24", "25",
+		"26", "27", "28", "29", "30",
+		"31" };
+private String months[]
+	= { "Jan", "feb", "Mar", "Apr",
+		"May", "Jun", "July", "Aug",
+		"Sup", "Oct", "Nov", "Dec" };
+private String years[]
+	= { "1995", "1996", "1997", "1998",
+		"1999", "2000", "2001", "2002",
+		"2003", "2004", "2005", "2006",
+		"2007", "2008", "2009", "2010",
+		"2011", "2012", "2013", "2014",
+		"2015", "2016", "2017", "2018",
+		"2019" };
+
+private String curyear[]
+		= { "1", "2", "3", "4"};
+
+
+// constructor, to initialize the components
+// with default values.
+public MyFrame()
+{
+	
+	setTitle("Course Registration Form");
+	setBounds(0, 0, 1300, 800);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
+	setResizable(false);
+
+	c = getContentPane();
+	c.setLayout(null);
+
+	title = new JLabel("Course Registration form");
+	title.setFont(new Font("Arial", Font.PLAIN, 30));
+	title.setSize(400, 50);
+	title.setLocation(300, 30);
+	c.add(title);
+
+	name = new JLabel("Name");
+	name.setFont(new Font("Arial", Font.PLAIN, 20));
+	name.setSize(100, 20);
+	name.setLocation(100, 100);
+	c.add(name);
+
+	tname = new JTextField();
+	tname.setFont(new Font("Arial", Font.PLAIN, 15));
+	tname.setSize(190, 20);
+	tname.setLocation(200, 100);
+	c.add(tname);
+
+	mno = new JLabel("Mobile");
+	mno.setFont(new Font("Arial", Font.PLAIN, 20));
+	mno.setSize(100, 20);
+	mno.setLocation(100, 150);
+	c.add(mno);
+
+	tmno = new JTextField();
+	tmno.setFont(new Font("Arial", Font.PLAIN, 15));
+	tmno.setSize(150, 20);
+	tmno.setLocation(200, 150);
+	c.add(tmno);
+
+	gender = new JLabel("Gender");
+	gender.setFont(new Font("Arial", Font.PLAIN, 20));
+	gender.setSize(100, 20);
+	gender.setLocation(100, 200);
+	c.add(gender);
+
+	male = new JRadioButton("Male");
+	male.setFont(new Font("Arial", Font.PLAIN, 15));
+	male.setSelected(true);
+	male.setSize(75, 20);
+	male.setLocation(200, 200);
+	c.add(male);
+
+	female = new JRadioButton("Female");
+	female.setFont(new Font("Arial", Font.PLAIN, 15));
+	female.setSelected(false);
+	female.setSize(80, 20);
+	female.setLocation(275, 200);
+	c.add(female);
+
+	
+
+	gengp = new ButtonGroup();
+	gengp.add(male);
+	gengp.add(female);
+
+	dob = new JLabel("DOB");
+	dob.setFont(new Font("Arial", Font.PLAIN, 20));
+	dob.setSize(100, 20);
+	dob.setLocation(100, 250);
+	c.add(dob);
+
+	date = new JComboBox(dates);
+	date.setFont(new Font("Arial", Font.PLAIN, 15));
+	date.setSize(50, 20);
+	date.setLocation(200, 250);
+	c.add(date);
+
+	month = new JComboBox(months);
+	month.setFont(new Font("Arial", Font.PLAIN, 15));
+	month.setSize(60, 20);
+	month.setLocation(250, 250);
+	c.add(month);
+
+	year = new JComboBox(years);
+	year.setFont(new Font("Arial", Font.PLAIN, 15));
+	year.setSize(60, 20);
+	year.setLocation(320, 250);
+	c.add(year);
+
+	add = new JLabel("Address");
+	add.setFont(new Font("Arial", Font.PLAIN, 20));
+	add.setSize(100, 20);
+	add.setLocation(100, 300);
+	c.add(add);
+
+	tadd = new JTextArea();
+	tadd.setFont(new Font("Arial", Font.PLAIN, 15));
+	tadd.setSize(200, 75);
+	tadd.setLocation(200, 300);
+	tadd.setLineWrap(true);
+	c.add(tadd);
+
+	
+	
+	
+	
+	
+	currentyear= new JLabel("Current Year");
+	currentyear.setFont(new Font("Arial", Font.PLAIN, 20));
+	currentyear.setSize(400, 20);
+	currentyear.setLocation(100, 400);
+	c.add(currentyear);
+	
+	sel1 = new JRadioButton("1");
+	sel1.setFont(new Font("Arial", Font.PLAIN, 15));
+	sel1.setSelected(true);
+	sel1.setSize(75, 20);
+	sel1.setLocation(250, 400);
+	c.add(sel1);
+	
+	sel2 = new JRadioButton("2");
+	sel2.setFont(new Font("Arial", Font.PLAIN, 15));
+	sel2.setSelected(true);
+	sel2.setSize(75, 20);
+	sel2.setLocation(350, 400);
+	c.add(sel2);
+	
+	sel3 = new JRadioButton("3");
+	sel3.setFont(new Font("Arial", Font.PLAIN, 15));
+	sel3.setSelected(true);
+	sel3.setSize(75, 20);
+	sel3.setLocation(450, 400);
+	c.add(sel3);
+	
+	sel4 = new JRadioButton("4");
+	sel4.setFont(new Font("Arial", Font.PLAIN, 15));
+	sel4.setSelected(true);
+	sel4.setSize(75, 20);
+	sel4.setLocation(550, 400);
+	c.add(sel4);
+	
+	gengp = new ButtonGroup();
+	gengp.add(sel1);
+	gengp.add(sel2);
+	gengp.add(sel3);
+	gengp.add(sel4);
+	
+	per1 = new JLabel("If you are new to college");
+	per1.setFont(new Font("Arial", Font.PLAIN, 20));
+	per1.setSize(400, 22);
+	per1.setLocation(100, 460);
+	c.add(per1);
+	
+	per2 = new JLabel("Enter your qualification marks :");
+	per2.setFont(new Font("Arial", Font.PLAIN, 20));
+	per2.setSize(400, 22);
+	per2.setLocation(100, 490);
+	c.add(per2);
+
+	merit = new JRadioButton("100-85%");
+	merit.setFont(new Font("Arial", Font.PLAIN, 15));
+	merit.setSelected(false);
+	merit.setSize(85, 25);
+	merit.setLocation(420, 470);
+	c.add(merit);
+
+	second = new JRadioButton("84-60%");
+	second.setFont(new Font("Arial", Font.PLAIN, 15));
+	second.setSelected(false);
+	second.setSize(80, 20);
+	second.setLocation(510, 470);
+	c.add(second);
+
+	general = new JRadioButton("59-35%");
+	general.setFont(new Font("Arial", Font.PLAIN, 15));
+	general.setSelected(false);
+	general.setSize(80, 20);
+	general.setLocation(600, 470);
+	c.add(general);
+	
+	Course = new JLabel("Courses");
+	Course.setFont(new Font("Arial", Font.PLAIN, 20));
+	Course.setSize(400, 50);
+	Course.setLocation(100, 535);
+	c.add(Course);
+	
+	courses = new JComboBox(courses1);
+	courses.setFont(new Font("Arial", Font.PLAIN, 15));
+	courses.setSize(290, 30);
+	courses.setLocation(220, 545);
+	c.add(courses);
+	
+	hosteller = new JRadioButton("Hostelite");
+	hosteller.setFont(new Font("Arial", Font.PLAIN, 20));
+	hosteller.setSelected(false);
+	hosteller.setSize(150, 20);
+	hosteller.setLocation(380, 610);
+	c.add(hosteller);
+
+	Dayschollar = new JRadioButton("DaySchollar");
+	Dayschollar.setFont(new Font("Arial", Font.PLAIN, 20));
+	Dayschollar.setSelected(true);
+	Dayschollar.setSize(150, 20);
+	Dayschollar.setLocation(170, 610);
+	c.add(Dayschollar);
+
+
+	
+	gengp = new ButtonGroup();
+	gengp.add(hosteller);
+	gengp.add(Dayschollar);
+	
+	
+		
+
+	
+	
+	
+		
+	
+	
+	term = new JCheckBox("Accept Terms And Conditions.");
+	term.setFont(new Font("Arial", Font.PLAIN, 15));
+	term.setSize(250, 20);
+	term.setLocation(150, 700);
+	c.add(term);
+
+	sub = new JButton("Submit");
+	sub.setFont(new Font("Arial", Font.PLAIN, 15));
+	sub.setSize(100, 20);
+	sub.setLocation(850, 690);
+	sub.addActionListener(this);
+	c.add(sub);
+
+	reset = new JButton("Reset");
+	reset.setFont(new Font("Arial", Font.PLAIN, 15));
+	reset.setSize(100, 20);
+	reset.setLocation(1000, 690);
+	reset.addActionListener(this);
+	c.add(reset);
+
+	tout = new JTextArea();
+	tout.setFont(new Font("Arial", Font.PLAIN, 15));
+	tout.setSize(340, 600);
+	tout.setLocation(800, 50);
+	tout.setLineWrap(true);
+	tout.setEditable(false);
+	c.add(tout);
+
+	bus = new JLabel("College Bus");
+	bus.setFont(new Font("Arial", Font.PLAIN, 20));
+	bus.setSize(300, 30);
+	bus.setLocation(100, 650);
+	c.add(bus);
+
+	yes = new JRadioButton("Required");
+	yes.setFont(new Font("Arial", Font.PLAIN, 15));
+	yes.setSelected(true);
+	yes.setSize(100, 30);
+	yes.setLocation(250, 650);
+	c.add(yes);
+
+	no = new JRadioButton("Not Required");
+	no.setFont(new Font("Arial", Font.PLAIN, 15));
+	no.setSelected(false);
+	no.setSize(150, 30);
+	no.setLocation(350, 650);
+	c.add(no);
+
+	gengp = new ButtonGroup();
+	gengp.add(yes);
+	gengp.add(no);
+	
+
+	km = new JLabel("Km: ");
+	km.setFont(new Font("Arial", Font.PLAIN, 20));
+	km.setSize(50, 25);
+	km.setLocation(550,650);
+	c.add(km);
+
+	km1 = new JRadioButton("5-10");
+	km1.setFont(new Font("Arial", Font.PLAIN, 15));
+	km1.setSelected(false);
+	km1.setSize(70, 25);
+	km1.setLocation(580,650);
+	c.add(km1);
+
+	km2 = new JRadioButton("10-20");
+	km2.setFont(new Font("Arial", Font.PLAIN, 15));
+	km2.setSelected(false);
+	km2.setSize(70, 20);
+	km2.setLocation(630,650);
+	c.add(km2);
+	
+	km3 = new JRadioButton("20 or more");
+	km3.setFont(new Font("Arial", Font.PLAIN, 15));
+	km3.setSelected(false);
+	km3.setSize(110, 20);
+	km3.setLocation(700, 650);
+	c.add(km3);
+
+	gengp = new ButtonGroup();
+	gengp.add(km1);
+	gengp.add(km2);
+	gengp.add(km3);
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+
+	setVisible(true);
+}
+
+
+// method actionPerformed()
+// to get the action performed
+// by the user and act accordingly
+public void actionPerformed(ActionEvent e)
+{
+	if (e.getSource() == sub) {
+		if (term.isSelected()) {
+			String data1;
+			String data
+				="---------------BNM Institute of Technology---------------\n"+ "Name : "
+				+ tname.getText() + "\n"
+				+ "Mobile : "
+				+ tmno.getText() + "\n";
+			if (male.isSelected())
+				data1 = "Gender : Male"
+						+ "\n";
+			else
+				data1 = "Gender : Female"
+						+ "\n";
+			String data2
+				= "DOB : "
+				+ (String)date.getSelectedItem()
+				+ "/" + (String)month.getSelectedItem()
+				+ "/" + (String)year.getSelectedItem()
+				+ "\n";
+			
+
+			
+			String data3 = "Address : " + tadd.getText()+"\n";
+			String data4;
+			if(sel1.isSelected())
+				data4="Current Year: 1"+" \n";
+			else if(sel2.isSelected())
+				data4="Current Year: 2"+" \n";
+			else if(sel2.isSelected())
+				data4="Current Year: 3 "+"\n";
+			else
+				data4="Current Year: 4"+" \n";
+			
+			String data5
+			="Course : "+(String)courses.getSelectedItem()+ "\n";
+			String data6
+			="\n"+"-------------Fees---------------\n\n";
+			String data8=
+					
+							"Infastructure Fees = 35,000.00"
+							+ "\n"
+							+ "Library Fees = 6,000.00";
+			int fin,dis,inf=35000,lib=6000;
+			String data7;
+			if(merit.isSelected())
+			{
+				dis=96000;
+				data7
+				="Course fees = "+dis+"(After deducting 20%)"
+						+ "\n";
+				
+				
+			}
+			else if(second.isSelected())
+			{
+				dis=108000;
+			data7
+				="Course fees = "+dis+"(After deducting 10%"
+						+ "\n";
+			}
+			else
+			{
+				dis=120000;
+			data7
+				="Course fees = "+dis
+						+ "\n";
+			}
+			
+			int trans;
+			String data11 = null;
+			if(km1.isSelected())
+			{
+				trans=10000;
+				data11
+				="\nTransportation fees = "+trans+"(for 5-10km)"+"\n";
+				
+				
+			}
+			else if(km2.isSelected())
+			{
+				trans=20000;
+				data11
+				="\nTransportation fees = "+trans+"(for 10-20km)"+"\n";
+			}
+			else if(km3.isSelected())
+			{
+				trans=30000;
+				data11
+				="\n"+"Transportation fees = "+trans+"(for 20 or more km)"+"\n";
+			}
+			else
+			{
+				trans=0;
+			
+			}
+			
+			
+			fin=dis+inf+lib+trans;
+			String data9
+			="\n"+"--------------------------"+"\n" ;
+			String data10
+			="Total = "+fin;
+			
+			
+					
+			
+			tout.setText(data + data1 + data2 + data3+data4+data5+data6+data7+data8+data11+data9+data10);
+			tout.setEditable(false);
+			res.setText("Registration Successfully..");
+		}
+		else {
+			tout.setText("");
+			resadd.setText("");
+			res.setText("Please accept the"
+						+ " terms & conditions..");
+		}
+	}
+
+	else if (e.getSource() == reset) {
+		String def = "";
+		tname.setText(def);
+		tadd.setText(def);
+		tmno.setText(def);
+		res.setText(def);
+		tout.setText(def);
+		term.setSelected(false);
+		date.setSelectedIndex(0);
+		month.setSelectedIndex(0);
+		year.setSelectedIndex(0);
+		resadd.setText(def);
+		courses.setSelectedIndex(0);
+	}
+	
+	
+}
+}
+class NewPage extends JFrame  
+{  
+	MyFrame f = new MyFrame();
+    NewPage()  
+    {  
+        setDefaultCloseOperation(javax.swing.  
+        WindowConstants.DISPOSE_ON_CLOSE);  
+        setTitle("Welcome");  
+        setSize(400, 200);  
+    }  
+}
+  
